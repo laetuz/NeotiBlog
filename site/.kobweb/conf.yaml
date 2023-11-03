@@ -1,0 +1,14 @@
+site:
+  title: "NeotiBlog"
+
+server:
+  files:
+    dev:
+      contentRoot: "build/processedResources/js/main/public"
+      script: "build/dist/js/developmentExecutable/neotiblog.js"
+      api: "build/libs/neotiblog.jar"
+    prod:
+      script: "build/dist/js/productionExecutable/neotiblog.js"
+      siteRoot: ".kobweb/site"
+
+  port: 8080
