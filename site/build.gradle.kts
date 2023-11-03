@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.kobweb.application)
     // alias(libs.plugins.kobwebx.markdown)
+    alias(libs.plugins.serialization.plugin)
 }
 
 group = "id.neotica.neotiblog"
@@ -41,6 +42,7 @@ kotlin {
             dependencies {
                 implementation(libs.kobweb.api)
                 implementation(libs.kmongo.database)
+                implementation(libs.kotlinx.serialization)
             }
         }
     }
