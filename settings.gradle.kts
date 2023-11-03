@@ -6,6 +6,6 @@ pluginManagement {
     }
 }
 
-rootProject.name = "neotiblog"
+rootProject.name = "NeotiBlog"
 
 include(":site")
