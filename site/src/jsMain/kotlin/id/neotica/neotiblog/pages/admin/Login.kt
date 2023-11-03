@@ -30,8 +30,10 @@ import com.varabyte.kobweb.compose.ui.modifiers.width
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.silk.components.graphics.Image
+import com.varabyte.kobweb.silk.components.style.toModifier
 import com.varabyte.kobweb.silk.components.text.SpanText
 import id.neotica.neotiblog.models.Theme
+import id.neotica.neotiblog.styles.LoginInputStyle
 import id.neotica.neotiblog.util.Res
 import org.jetbrains.compose.web.attributes.InputType
 import org.jetbrains.compose.web.css.LineStyle
@@ -54,7 +56,8 @@ fun LoginScreen() {
         Column(
             modifier = Modifier
                 .padding(leftRight = 50.px, top = 80.px, bottom = 24.px)
-                .backgroundColor(Theme.Secondary.rgb),
+                .backgroundColor(Theme.Secondary.rgb)
+                .borderRadius(12.px),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -66,17 +69,13 @@ fun LoginScreen() {
             )
             Input(
                 type = InputType.Text,
-                attrs = Modifier
+                attrs = LoginInputStyle.toModifier()
                     .margin(bottom = 12.px)
                     .width(530.px)
                     .height(54.px)
-                    .padding(leftRight = 20.px)
+                    .padding(leftRight = "20".toInt().px)
                     .backgroundColor(Colors.White)
-                    .border(
-                        width = 0.px,
-                        style = LineStyle.None,
-                        color = Colors.Transparent
-                    )
+                    .fontSize(Res.FontSizes.normal)
                     .outline(
                         width = 0.px,
                         style = LineStyle.None,
@@ -88,17 +87,13 @@ fun LoginScreen() {
             )
             Input(
                 type = InputType.Password,
-                attrs = Modifier
+                attrs = LoginInputStyle.toModifier()
                     .margin(bottom = 20.px)
                     .width(530.px)
                     .height(54.px)
                     .padding(leftRight = 20.px)
                     .backgroundColor(Colors.White)
-                    .border(
-                        width = 0.px,
-                        style = LineStyle.None,
-                        color = Colors.Transparent
-                    )
+                    .fontSize(Res.FontSizes.normal)
                     .outline(
                         width = 0.px,
                         style = LineStyle.None,
@@ -118,7 +113,7 @@ fun LoginScreen() {
                     .borderRadius(30.px)
                     .fontFamily()
                     .fontWeight(FontWeight.Medium)
-                    .fontSize(16.px)
+                    .fontSize(Res.FontSizes.normal)
                     .border(
                         width = 0.px,
                         style = LineStyle.None,
