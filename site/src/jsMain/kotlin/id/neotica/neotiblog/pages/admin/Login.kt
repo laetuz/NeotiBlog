@@ -63,7 +63,7 @@ import org.w3c.dom.set
 fun LoginScreen() {
     val scope = rememberCoroutineScope()
     val context = rememberPageContext()
-    var errorText by remember { mutableStateOf("") }
+    var errorText by remember { mutableStateOf(" ") }
     Text("this is login screen")
     Box(
         modifier = Modifier
@@ -158,7 +158,7 @@ fun LoginScreen() {
                                 )
                                 if (user != null) {
                                     rememberLoggedIn(remember = true, user = user)
-                                    context.router.navigateTo("admin/home")
+                                    context.router.navigateTo("/admin")
                                 } else {
                                     errorText = "The user doesn't exist."
                                     delay(3000)

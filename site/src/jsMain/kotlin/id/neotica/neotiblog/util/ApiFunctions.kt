@@ -9,7 +9,7 @@ import kotlinx.serialization.json.Json
 
 suspend fun checkUserExistence(user: User): Guest? {
     return try {
-        var result = window.api.tryPost(
+        val result = window.api.tryPost(
             apiPath = "usercheck",
             body = Json.encodeToString(user).encodeToByteArray(),
         )
@@ -17,5 +17,18 @@ suspend fun checkUserExistence(user: User): Guest? {
     } catch (e: Exception) {
         println(e.message)
         null
+    }
+}
+
+suspend fun checkUserId(id: String): Boolean {
+    return try {
+        val result = window.api.tryPost(
+            apiPath = "checkuserid",
+            body = Json.encodeToString(id).encodeToByteArray(),
+        )
+        result?.decodeToString()?.let { Json.decodeFromString<Boolean>(it) } ?: false
+    } catch (e: Exception) {
+        println(e.message.toString())
+        false
     }
 }

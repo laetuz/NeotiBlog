@@ -37,7 +37,7 @@ suspend fun userCheck(context: ApiContext) {
     }
 }
 
-/*@Api(routeOverride = "checkuserid")
+@Api(routeOverride = "checkuserid")
 suspend fun checkUserId(context: ApiContext) {
     try {
         val idRequest =
@@ -53,7 +53,7 @@ suspend fun checkUserId(context: ApiContext) {
     } catch (e: Exception) {
         context.res.setBodyText(Json.encodeToString(false))
     }
-}*/
+}
 
 private fun hashPassword(password: String): String {
     val messageDigest = MessageDigest.getInstance("SHA-256")
