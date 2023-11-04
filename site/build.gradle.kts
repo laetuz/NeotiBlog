@@ -22,10 +22,17 @@ kobweb {
 kotlin {
     configAsKobwebApplication("neotiblog", includeServer = true)
 
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
+        kotlinOptions {
+            jvmTarget = "17"
+        }
+    }
+
     sourceSets {
         val commonMain by getting {
             dependencies {
                 implementation(compose.runtime)
+                implementation(libs.kotlinx.serialization)
             }
         }
 
@@ -36,12 +43,15 @@ kotlin {
                 implementation(libs.kobweb.silk)
                 implementation(libs.silk.icons.fa)
                 // implementation(libs.kobwebx.markdown)
+                implementation(libs.kotlinx.serialization)
+              //  implementation(libs.kmongo.database)
             }
         }
         val jvmMain by getting {
             dependencies {
                 implementation(libs.kobweb.api)
                 implementation(libs.kmongo.database)
+                implementation(libs.mongodb.kotlin.driver)
                 implementation(libs.kotlinx.serialization)
             }
         }
