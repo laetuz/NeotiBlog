@@ -15,3 +15,8 @@ object Res {
         const val logoOval = "/logo_oval.png"
     }
 }
+
+object Id {
+    const val usernameInput = "usernameInput"
+    const val passwordInput = "passwordInput"
+}
